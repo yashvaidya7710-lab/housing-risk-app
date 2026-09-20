@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: housing-risk-app
+    runtime: python
+    buildCommand: python -m pip install --upgrade pip setuptools wheel && python -m pip install --only-binary=:all: -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
